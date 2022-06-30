@@ -12,11 +12,13 @@ services:
       - /Users/lawrence/Documents/Capstone/Jest-test/jenkins/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
   agent:
-    image: jenkins/ssh-agent:jdk11
+    image: jenkins/inbound-agent
     privileged: true
     user: root
-    container_name: agent
+    container_name: agent1
     expose:
       - 22
     environment:
-      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/Qki0lToK92iYh6HoMSpeRdQayqXpJbq4jdmBCa23w6eHE/+W3XX8F+DGFGyris+vljG1UHNHw6EQ94lgFb0YuXyRjS08MtzQBXvdI1TkyIDsobbriW2JwVdM0XsxoylUNGiLDIpo6tL5Tet1IdNOg0Q03CJwzJAlyNn9pkAb4+QA2NYRxT44StVjDenwaxqq55qEd7xprQwjDs6jG8Zw0ChoITCVJvN9fjVHkC9l5fZLxVlVqcmv5Qdyl9j5eJKoe0BjD5UzIxQI78UWKy//Fy7ZD3WCv3GaVnnbvcKZ1rNgB1rZuSclB92b1wBVJ22fuQTWqMgQ09tIy9m06A+C0ZkiSs8wCgFSeul0L6DKX4m4P2lRBhSzpBhFfvgaDLdyBETWCCgAKVIKJprCoquirPh9wKwEvBlr+d11OeMcaPAZD5pw5GHqY0bt1UDARd+LqwiOw5xsMzwOdabvEu8QJGvdlIRg1TYENQUHVbEsIuhczhnEtS9sHO67/1Hqrf0= lawrence@Lawrences-MBP
+      - JENKINS_SECRET=58158fcca3f34493b855106d9f14ffad78c86e41c38fe5f5560a86c29d10b907
+      - JENKINS_URL=http://jenkins-controller:8080
+      - JENKINS_AGENT_NAME=agent1
