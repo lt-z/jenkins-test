@@ -6,6 +6,7 @@ pipeline {
                 stage('Build parallel 1') {
                     agent { label 'agent2' }
                     steps {
+                        sh 'whereis git' 
                         echo 'Building.. 1'
                         sh 'npm install'
                     }
@@ -13,6 +14,7 @@ pipeline {
                 stage('Build parallel 2') {
                     agent { label 'agent1' }
                     steps {
+                        sh 'whereis git' 
                         echo 'Building.. 2'
                         sh 'npm install'
                     }
